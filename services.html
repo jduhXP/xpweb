@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Xtreme Precision Auto Repair — Services</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── Page hero ── */
+    .page-hero {
+      background: var(--navy);
+      padding: 72px 5% 64px;
+    }
+    .page-hero__label {
+      font-family: var(--font-head);
+      font-size: .8rem;
+      font-weight: 700;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: .6rem;
+    }
+    .page-hero__title {
+      font-family: var(--font-head);
+      font-weight: 800;
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      color: var(--white);
+      line-height: 1.05;
+      margin-bottom: 1rem;
+    }
+    .page-hero__sub {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,.65);
+      max-width: 520px;
+      line-height: 1.7;
+    }
+
+    /* ── Filter tabs ── */
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .6rem;
+      margin-bottom: 2.5rem;
+    }
+    .filter-btn {
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: .85rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: .4rem 1rem;
+      border-radius: 20px;
+      border: 2px solid var(--border);
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+      transition: all .2s;
+    }
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: var(--navy);
+      border-color: var(--navy);
+      color: var(--white);
+    }
+
+    /* ── Service cards (expanded) ── */
+    .service-section { margin-bottom: 3.5rem; }
+    .service-section__heading {
+      font-family: var(--font-head);
+      font-weight: 800;
+      font-size: 1.5rem;
+      color: var(--navy);
+      border-left: 4px solid var(--amber);
+      padding-left: .75rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .service-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem 1.75rem;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 1.25rem;
+      align-items: start;
+      box-shadow: var(--shadow);
+      margin-bottom: 1rem;
+      transition: box-shadow .2s, transform .2s;
+    }
+    .service-card:hover { box-shadow: var(--shadow-lg); transform: translateX(3px); }
+    .service-card__icon {
+      width: 52px; height: 52px;
+      background: var(--silver);
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      flex-shrink: 0;
+    }
+    .service-card__title {
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: 1.15rem;
+      color: var(--navy);
+      margin-bottom: .3rem;
+    }
+    .service-card__desc { font-size: .9rem; color: var(--muted); line-height: 1.65; }
+    .service-card__tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .4rem;
+      margin-top: .6rem;
+    }
+    .tag {
+      font-family: var(--font-head);
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: .18rem .6rem;
+      border-radius: 3px;
+      background: var(--silver);
+      color: var(--muted);
+    }
+    .tag--blue { background: #E0EFF9; color: var(--blue); }
+    .tag--amber { background: #FDF3E1; color: var(--amber-dk); }
+    .service-card__price {
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--navy);
+      white-space: nowrap;
+      text-align: right;
+    }
+    .service-card__price span {
+      display: block;
+      font-family: var(--font-body);
+      font-size: .75rem;
+      font-weight: 400;
+      color: var(--muted);
+    }
+
+    /* ── Promise section ── */
+    .promise-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+    .promise-item { text-align: center; }
+    .promise-item__icon {
+      font-size: 2rem;
+      margin-bottom: .6rem;
+    }
+    .promise-item__title {
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--white);
+      margin-bottom: .3rem;
+    }
+    .promise-item__body { font-size: .875rem; color: rgba(255,255,255,.6); line-height: 1.6; }
+
+    @media (max-width: 640px) {
+      .service-card {
+        grid-template-columns: auto 1fr;
+      }
+      .service-card__price { grid-column: 2; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <a href="index.html" class="nav__logo">
+      <span class="nav__logo-top">Xtreme Precision</span>
+      <span class="nav__logo-sub">Auto Repair</span>
+    </a>
+    <ul class="nav__links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html" class="hide-sm">About</a></li>
+      <li><a href="services.html" class="active">Services</a></li>
+      <li><a href="tel:+13175550192" class="nav__cta">Call Us</a></li>
+    </ul>
+  </nav>
+  <div class="stripe"></div>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <p class="page-hero__label">Full-Service Auto Repair</p>
+    <h1 class="page-hero__title">Every Service.<br>Done Right.</h1>
+    <p class="page-hero__sub">From quick oil changes to complex engine work — we handle it all with the same commitment to quality and honesty.</p>
+  </section>
+
+  <!-- Services Grid -->
+  <section class="section">
+
+    <!-- Maintenance -->
+    <div class="service-section">
+      <div class="service-section__heading">Routine Maintenance</div>
+
+      <div class="service-card">
+        <div class="service-card__icon">🛢️</div>
+        <div>
+          <div class="service-card__title">Oil &amp; Filter Change</div>
+          <p class="service-card__desc">Conventional, synthetic blend, or full synthetic. Includes multi-point inspection and tire pressure check. We use top-tier oils from Mobil 1, Castrol, and Pennzoil.</p>
+          <div class="service-card__tags">
+            <span class="tag tag--blue">Most Popular</span>
+            <span class="tag">Same Day</span>
+          </div>
+        </div>
+        <div class="service-card__price">From $49<span>Full synthetic from $79</span></div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-card__icon">💧</div>
+        <div>
+          <div class="service-card__title">Coolant Flush &amp; Fill</div>
+          <p class="service-card__desc">Removes degraded coolant and deposits, refills with the correct OEM-spec fluid to protect your engine from overheating and corrosion.</p>
+          <div class="service-card__tags"><span class="tag">Same Day</span></div>
+        </div>
+        <div class="service-card__price">From $89<span>Most vehicles</span></div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-card__icon">🔋</div>
+        <div>
+          <div class="service-card__title">Battery Test &amp; Replacement</div>
+          <p class="service-card__desc">Load test your battery and charging system. If replacement is needed, we stock batteries for virtually every make and model and install them on the spot.</p>
+          <div class="service-card__tags"><span class="tag">Same Day</span></div>
+        </div>
+        <div class="service-card__price">Test Free<span>Replacement from $129</span></div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-card__icon">🌬️</div>
+        <div>
+          <div class="service-card__title">Air Filter &amp; Cabin Filter</div>
+          <p class="service-card__desc">Engine air filters protect performance; cabin filters protect what you breathe. We check both and replace only what's needed.</p>
+          <div class="service-card__tags"><span class="tag">Same Day</span></div>
+        </div>
+        <div class="service-card__price">From $29<span>Per filter</span></div>
+      </div>
+    </div>
+
+    <!-- Brakes -->
+    <div class="service-section">
+      <div class="service-section__heading">Brakes &amp; Steering</div>
+
+      <div class="service-card">
+        <div class="service-card__icon">🛑</div>
+        <div>
+          <div class="service-card__title">Brake Pad Replacement</div>
+          <p class="service-card__desc">OEM or premium ceramic pads installed with a full caliper and hardware inspection. We measure rotor thickness and advise resurfacing or replacement as needed.</p>
+          <div class="service-card__tags"><span class="tag tag--blue">Most Popular</span></div>
+        </div>
+        <div class="service-card__price">From $149<span>Per axle</span></div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-card__icon">⭕</div>
+        <div>
+          <div class="service-card__title">Rotor Replacement</div>
+          <p class="service-card__desc">Warped or worn rotors cause vibration and longer stopping distances. We replace with quality rotors matched to your vehicle's specs.</p>
+          <div class="service-card__tags"></div>
+        </div>
+        <div class="service-card__price">From $220<span>Per axle (incl. pads)</span></div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-card__icon">🔴</div>
+        <div>
+          <div class="service-card__title">Brake Fluid Flush</div>
+          <p class="service-card__desc">Moisture-contaminated brake fluid lowers boiling point and reduces stopping power. We flush and refill with fresh DOT-rated fluid.</p>
+          <div class="service-card__tags"></div>
+        </div>
+        <div class="service-card__price">From $79<span>Most vehicles</span></div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-card__icon">🔩</div>
+        <div>
+          <div class="service-card__title">Power Steering Service</div>
+          <p class="service-card__desc">Fluid flush and fill for traditional hydraulic systems. For electric power steering systems, we perform software-based diagnostics and recalibration.</p>
+          <div class="service-card__tags"></div>
+        </div>
+        <div class="service-card__price">From $89<span>Hydraulic systems</span></div>
+      </div>
+    </div>
+
+    <!-- Engine & Drivetrain -->
+    <div class="service-section">
+      <div class="service-section__heading">Engine &amp; Drivetrain</div>
+
+      <div class="service-card">
+        <div class="service-card__icon">⚡</div>
+        <div>
+          <div class="service-card__title">Check Engine Light Diagnosis</div>
+          <p class="service-card__desc">We pull fault codes and perform targeted component tests to identify the true root cause — not just clear the light and hope for the best.</p>
+          <div class="service-card__tags"><span class="tag tag--amber">Diagnostic</span></div>
+        </div>
+        <div class="service-card__price">$89<span>Applied to repair</span></div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-card__icon">🔥</div>
+        <div>
+          <div class="service-card__title">Timing Belt / Chain Service</div>
+          <p class="service-card__desc">A skipped or broken timing belt can destroy an engine. We replace belts and associated components (water pump, tensioners) on the manufacturer's recommended schedule.</p>
+          <div class="service-card__tags"><span class="tag tag--amber">Major Service</span></div>
+        </div>
+        <div class="service-card__price">Call for Quote<span>Varies by vehicle</span></div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-card__icon">⚙️</div>
+        <div>
+          <div class="service-card__title">Transmission Service</div>
+          <p class="service-card__desc">Fluid flush and filter replacement for automatic transmissions. We also perform diagnostics for slipping, hard shifting, or warning lights.</p>
+          <div class="service-card__tags"></div>
+        </div>
+        <div class="service-card__price">From $149<span>Fluid service</span></div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-card__icon">🪝</div>
+        <div>
+          <div class="service-card__title">Spark Plug Replacement</div>
+          <p class="service-card__desc">Worn plugs reduce fuel economy and cause misfires. We install manufacturer-recommended plugs — iridium, platinum, or copper — and check coil-on-plug boots at the same time.</p>
+          <div class="service-card__tags"><span class="tag">Same Day</span></div>
+        </div>
+        <div class="service-card__price">From $99<span>Most 4-cylinder engines</span></div>
+      </div>
+    </div>
+
+    <!-- Tires & Suspension -->
+    <div class="service-section">
+      <div class="service-section__heading">Tires &amp; Suspension</div>
+
+      <div class="service-card">
+        <div class="service-card__icon">🔄</div>
+        <div>
+          <div class="service-card__title">Tire Rotation &amp; Balance</div>
+          <p class="service-card__desc">Regular rotation extends tire life and evens wear. We balance all four wheels and check tread depth and air pressure on every visit.</p>
+          <div class="service-card__tags"><span class="tag">Same Day</span></div>
+        </div>
+        <div class="service-card__price">From $39<span>Most vehicles</span></div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-card__icon">📐</div>
+        <div>
+          <div class="service-card__title">Wheel Alignment</div>
+          <p class="service-card__desc">Misalignment causes uneven tire wear and pulls at the wheel. We perform 4-wheel computerized alignment and adjust to factory specifications.</p>
+          <div class="service-card__tags"></div>
+        </div>
+        <div class="service-card__price">From $89<span>4-wheel alignment</span></div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-card__icon">🌀</div>
+        <div>
+          <div class="service-card__title">Shocks &amp; Struts</div>
+          <p class="service-card__desc">Worn shocks reduce ride quality and braking effectiveness. We inspect, diagnose, and replace shocks and struts with OEM or premium aftermarket units.</p>
+          <div class="service-card__tags"><span class="tag tag--amber">Inspection Available</span></div>
+        </div>
+        <div class="service-card__price">From $249<span>Per axle</span></div>
+      </div>
+    </div>
+
+    <!-- Heating & A/C -->
+    <div class="service-section">
+      <div class="service-section__heading">Heating &amp; Air Conditioning</div>
+
+      <div class="service-card">
+        <div class="service-card__icon">❄️</div>
+        <div>
+          <div class="service-card__title">A/C Recharge &amp; Leak Test</div>
+          <p class="service-card__desc">Not blowing cold? We evacuate and recharge your refrigerant to factory spec, and perform a leak test to identify any system issues before they get worse.</p>
+          <div class="service-card__tags"><span class="tag tag--blue">Popular in Summer</span></div>
+        </div>
+        <div class="service-card__price">From $129<span>Includes refrigerant</span></div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-card__icon">🌡️</div>
+        <div>
+          <div class="service-card__title">Heater Core &amp; Thermostat</div>
+          <p class="service-card__desc">Insufficient heat or temperature fluctuations often point to thermostat failure or heater core issues. We diagnose and repair heating systems for all makes and models.</p>
+          <div class="service-card__tags"><span class="tag tag--amber">Diagnostic</span></div>
+        </div>
+        <div class="service-card__price">Call for Quote<span>Varies by vehicle</span></div>
+      </div>
+    </div>
+
+  </section>
+
+  <div class="stripe"></div>
+
+  <!-- Promise -->
+  <section class="section section--navy">
+    <p class="section__label">Our Service Promise</p>
+    <h2 class="section__title">What You Can Always Expect</h2>
+    <div class="promise-grid">
+      <div class="promise-item">
+        <div class="promise-item__icon">📋</div>
+        <div class="promise-item__title">Written Estimate First</div>
+        <p class="promise-item__body">We never start work without your written approval of a detailed estimate.</p>
+      </div>
+      <div class="promise-item">
+        <div class="promise-item__icon">🛡️</div>
+        <div class="promise-item__title">12-Month Warranty</div>
+        <p class="promise-item__body">All repairs warrantied for 12 months or 12,000 miles — whichever comes first.</p>
+      </div>
+      <div class="promise-item">
+        <div class="promise-item__icon">⚡</div>
+        <div class="promise-item__title">Same-Day Service</div>
+        <p class="promise-item__body">Most maintenance and common repairs completed the same day you bring it in.</p>
+      </div>
+      <div class="promise-item">
+        <div class="promise-item__icon">💬</div>
+        <div class="promise-item__title">Plain-Language Updates</div>
+        <p class="promise-item__body">We call before any additional work and explain exactly what we found.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Band -->
+  <div class="cta-band">
+    <h2 class="cta-band__title">Don't See What You Need?</h2>
+    <p class="cta-band__sub">Give us a call — if it's automotive, we can likely help.</p>
+    <div class="cta-band__actions">
+      <a href="tel:+13175550192" class="btn btn--amber">📞 (317) 555-0192</a>
+      <a href="about.html" class="btn btn--outline">About Our Shop</a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer__grid">
+      <div>
+        <div class="footer__brand-name">Xtreme Precision</div>
+        <div class="footer__brand-tag">Auto Repair</div>
+        <p class="footer__desc">Serving Indianapolis and surrounding communities with honest, expert auto repair since 2009. Your vehicle. Our precision.</p>
+      </div>
+      <div>
+        <div class="footer__col-title">Pages</div>
+        <ul class="footer__col">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="services.html">Services</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer__col-title">Contact</div>
+        <ul class="footer__col">
+          <li>📍 4821 Keystone Ave, Indianapolis, IN</li>
+          <li>📞 (317) 555-0192</li>
+          <li>✉️ info@xtremeprecision.com</li>
+          <li>Mon–Fri: 7:30 AM – 6:00 PM</li>
+          <li>Sat: 8:00 AM – 3:00 PM</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© 2025 Xtreme Precision Auto Repair. All rights reserved.</span>
+      <span>Indianapolis, IN</span>
+    </div>
+  </footer>
+
+</body>
+</html>
