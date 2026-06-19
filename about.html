@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Xtreme Precision Auto Repair — About Us</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── Page hero ── */
+    .page-hero {
+      background: var(--navy);
+      padding: 72px 5% 64px;
+    }
+    .page-hero__label {
+      font-family: var(--font-head);
+      font-size: .8rem;
+      font-weight: 700;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: .6rem;
+    }
+    .page-hero__title {
+      font-family: var(--font-head);
+      font-weight: 800;
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      color: var(--white);
+      line-height: 1.05;
+      margin-bottom: 1rem;
+    }
+    .page-hero__sub {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,.65);
+      max-width: 520px;
+      line-height: 1.7;
+    }
+
+    /* ── Story split ── */
+    .story {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .story__img-wrap {
+      background: var(--silver);
+      border-radius: var(--radius);
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .story__img-placeholder {
+      font-size: 5rem;
+      opacity: .3;
+    }
+    .story__title {
+      font-family: var(--font-head);
+      font-weight: 800;
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      color: var(--navy);
+      margin-bottom: 1rem;
+    }
+    .story__body {
+      font-size: 1rem;
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+
+    /* ── Values ── */
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    .value-card {
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+      transition: background .2s;
+    }
+    .value-card:hover { background: rgba(255,255,255,.12); }
+    .value-card__icon { font-size: 1.8rem; margin-bottom: .8rem; }
+    .value-card__title {
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--white);
+      margin-bottom: .4rem;
+    }
+    .value-card__body { font-size: .9rem; color: rgba(255,255,255,.6); line-height: 1.65; }
+
+    /* ── Team ── */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    .team-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .team-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+    .team-card__avatar {
+      background: var(--silver);
+      height: 160px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3.5rem;
+    }
+    .team-card__info { padding: 1.25rem; }
+    .team-card__name {
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--navy);
+    }
+    .team-card__role {
+      font-size: .85rem;
+      color: var(--blue);
+      font-weight: 600;
+      margin-bottom: .4rem;
+    }
+    .team-card__bio { font-size: .875rem; color: var(--muted); line-height: 1.6; }
+
+    /* ── Certifications bar ── */
+    .cert-bar {
+      background: var(--blue);
+      padding: 32px 5%;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      align-items: center;
+      justify-content: center;
+    }
+    .cert-item {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      color: var(--white);
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: .95rem;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+    .cert-item__badge {
+      background: var(--amber);
+      color: var(--navy);
+      font-family: var(--font-head);
+      font-weight: 800;
+      font-size: .8rem;
+      padding: .2rem .5rem;
+      border-radius: 3px;
+    }
+
+    @media (max-width: 768px) {
+      .story { grid-template-columns: 1fr; gap: 2rem; }
+      .story__img-wrap { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <a href="index.html" class="nav__logo">
+      <span class="nav__logo-top">Xtreme Precision</span>
+      <span class="nav__logo-sub">Auto Repair</span>
+    </a>
+    <ul class="nav__links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html" class="active hide-sm">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="tel:+13175550192" class="nav__cta">Call Us</a></li>
+    </ul>
+  </nav>
+  <div class="stripe"></div>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <p class="page-hero__label">About Xtreme Precision</p>
+    <h1 class="page-hero__title">More Than a Shop.<br>A Standard.</h1>
+    <p class="page-hero__sub">We built Xtreme Precision on the belief that auto repair should be straightforward — quality work, fair prices, and no runaround.</p>
+  </section>
+
+  <!-- Our Story -->
+  <section class="section">
+    <div class="story">
+      <div class="story__img-wrap" aria-hidden="true">
+        <span class="story__img-placeholder">🏎️</span>
+      </div>
+      <div>
+        <p class="section__label">Our Story</p>
+        <h2 class="story__title">Started in 2009 with a Single Bay and a Big Commitment</h2>
+        <p class="story__body">Founder and Master Technician David Reyes grew up in his uncle's garage in Indianapolis, learning that the right repair done right the first time is the only repair that matters. After years at a dealership service center, he saw how the industry left customers feeling uninformed and overcharged.</p>
+        <p class="story__body">He opened Xtreme Precision with a different model: certified technicians, transparent diagnostics, and written estimates before any work begins. Word spread quickly. What started as a one-bay operation in 2009 has grown to a full 8-bay facility serving thousands of Indianapolis-area drivers every year.</p>
+        <a href="services.html" class="btn btn--blue">See What We Offer</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="stripe"></div>
+
+  <!-- Core Values -->
+  <section class="section section--navy">
+    <p class="section__label">What We Stand For</p>
+    <h2 class="section__title">Our Core Values</h2>
+    <p class="section__body">Every decision we make — from the parts we stock to the way we communicate — comes back to these principles.</p>
+    <div class="values-grid">
+      <div class="value-card">
+        <div class="value-card__icon">🎯</div>
+        <div class="value-card__title">Precision First</div>
+        <p class="value-card__body">We diagnose before we repair. Guessing wastes your time and money. We take the extra minutes to get it right.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-card__icon">🤝</div>
+        <div class="value-card__title">Radical Transparency</div>
+        <p class="value-card__body">Plain-language explanations, itemized estimates, and no upsells you don't need. You decide — always.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-card__icon">⭐</div>
+        <div class="value-card__title">Quality Parts</div>
+        <p class="value-card__body">We install OEM and premium aftermarket parts. Cheap parts lead to comebacks. We're not in that business.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-card__icon">🌱</div>
+        <div class="value-card__title">Community Roots</div>
+        <p class="value-card__body">We're Indianapolis-born and Indianapolis-focused. We sponsor youth sports, hire locally, and give back year-round.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certifications -->
+  <div class="cert-bar">
+    <div class="cert-item"><span class="cert-item__badge">ASE</span> ASE Certified Technicians</div>
+    <div class="cert-item"><span class="cert-item__badge">OEM</span> OEM Parts Available</div>
+    <div class="cert-item"><span class="cert-item__badge">12/12</span> 12-Month / 12,000-Mile Warranty</div>
+    <div class="cert-item"><span class="cert-item__badge">BBB</span> A+ BBB Rated</div>
+  </div>
+
+  <!-- Team -->
+  <section class="section section--silver">
+    <p class="section__label">The Team</p>
+    <h2 class="section__title">Meet Our Technicians</h2>
+    <p class="section__body">Every member of our team is here because they love cars and care about doing right by customers.</p>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-card__avatar">👨‍🔧</div>
+        <div class="team-card__info">
+          <div class="team-card__name">David Reyes</div>
+          <div class="team-card__role">Owner & Master Technician</div>
+          <p class="team-card__bio">ASE Master Certified with 20+ years of experience. Specializes in engine performance and advanced diagnostics.</p>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-card__avatar">👩‍🔧</div>
+        <div class="team-card__info">
+          <div class="team-card__name">Alicia Torres</div>
+          <div class="team-card__role">Lead Brake & Suspension Tech</div>
+          <p class="team-card__bio">ASE Certified with 11 years of experience. Our go-to for anything wheels, tires, and suspension-related.</p>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-card__avatar">👨‍🔧</div>
+        <div class="team-card__info">
+          <div class="team-card__name">James Park</div>
+          <div class="team-card__role">Electrical & HVAC Specialist</div>
+          <p class="team-card__bio">Trained in modern vehicle electronics, EV-adjacent systems, and climate control diagnostics.</p>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-card__avatar">👨‍🔧</div>
+        <div class="team-card__info">
+          <div class="team-card__name">Carlos Mendez</div>
+          <div class="team-card__role">Drivetrain & Transmission Tech</div>
+          <p class="team-card__bio">Specializes in transmissions, differentials, and drivetrain systems across domestic and import vehicles.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Band -->
+  <div class="cta-band">
+    <h2 class="cta-band__title">Let's Take Care of Your Vehicle</h2>
+    <p class="cta-band__sub">Give us a call or come by our shop on Keystone Ave.</p>
+    <div class="cta-band__actions">
+      <a href="tel:+13175550192" class="btn btn--amber">📞 (317) 555-0192</a>
+      <a href="services.html" class="btn btn--outline">View Services</a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer__grid">
+      <div>
+        <div class="footer__brand-name">Xtreme Precision</div>
+        <div class="footer__brand-tag">Auto Repair</div>
+        <p class="footer__desc">Serving Indianapolis and surrounding communities with honest, expert auto repair since 2009. Your vehicle. Our precision.</p>
+      </div>
+      <div>
+        <div class="footer__col-title">Pages</div>
+        <ul class="footer__col">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="services.html">Services</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer__col-title">Contact</div>
+        <ul class="footer__col">
+          <li>📍 4821 Keystone Ave, Indianapolis, IN</li>
+          <li>📞 (317) 555-0192</li>
+          <li>✉️ info@xtremeprecision.com</li>
+          <li>Mon–Fri: 7:30 AM – 6:00 PM</li>
+          <li>Sat: 8:00 AM – 3:00 PM</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© 2025 Xtreme Precision Auto Repair. All rights reserved.</span>
+      <span>Indianapolis, IN</span>
+    </div>
+  </footer>
+
+</body>
+</html>
