@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Xtreme Precision Auto Repair — Home</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── Hero ── */
+    .hero {
+      background: var(--navy);
+      padding: 96px 5% 80px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      min-height: 520px;
+    }
+    .hero__label {
+      font-family: var(--font-head);
+      font-size: .8rem;
+      font-weight: 700;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: .75rem;
+    }
+    .hero__title {
+      font-family: var(--font-head);
+      font-weight: 800;
+      font-size: clamp(2.6rem, 5.5vw, 4.2rem);
+      line-height: 1.02;
+      color: var(--white);
+      margin-bottom: 1.25rem;
+    }
+    .hero__title span { color: var(--amber); }
+    .hero__body {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,.7);
+      line-height: 1.75;
+      margin-bottom: 2rem;
+      max-width: 440px;
+    }
+    .hero__actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+    /* ── Stats bar ── */
+    .stats {
+      background: var(--blue);
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      padding: 28px 5%;
+      gap: 1.5rem;
+    }
+    .stat {
+      text-align: center;
+      color: var(--white);
+    }
+    .stat__num {
+      font-family: var(--font-head);
+      font-weight: 800;
+      font-size: 2.2rem;
+      line-height: 1;
+      color: var(--amber);
+    }
+    .stat__label {
+      font-family: var(--font-head);
+      font-size: .8rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.8);
+      margin-top: .3rem;
+    }
+
+    /* ── Why us ── */
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    .why-item {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+    .why-item__icon {
+      flex-shrink: 0;
+      width: 44px; height: 44px;
+      background: var(--amber);
+      border-radius: var(--radius);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem;
+    }
+    .why-item__title {
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--navy);
+      margin-bottom: .25rem;
+    }
+    .why-item__body { font-size: .9rem; color: var(--muted); line-height: 1.65; }
+
+    /* ── Services preview ── */
+    .services-preview { margin-top: 3rem; }
+
+    /* ── CTA band ── */
+    .cta-band {
+      background: var(--navy);
+      padding: 64px 5%;
+      text-align: center;
+    }
+    .cta-band__title {
+      font-family: var(--font-head);
+      font-weight: 800;
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      color: var(--white);
+      margin-bottom: .75rem;
+    }
+    .cta-band__sub {
+      color: rgba(255,255,255,.65);
+      font-size: 1rem;
+      margin-bottom: 2rem;
+    }
+    .cta-band__actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+    /* ── Testimonials ── */
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    .testimonial {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+      box-shadow: var(--shadow);
+    }
+    .testimonial__stars { color: var(--amber); font-size: 1rem; margin-bottom: .75rem; }
+    .testimonial__text { font-size: .95rem; color: var(--muted); line-height: 1.7; margin-bottom: 1rem; font-style: italic; }
+    .testimonial__name { font-family: var(--font-head); font-weight: 700; font-size: .95rem; color: var(--navy); }
+
+    @media (max-width: 768px) {
+      .hero { grid-template-columns: 1fr; gap: 2rem; min-height: auto; }
+      .hero__visual { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <a href="index.html" class="nav__logo">
+      <span class="nav__logo-top">Xtreme Precision</span>
+      <span class="nav__logo-sub">Auto Repair</span>
+    </a>
+    <ul class="nav__links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="about.html" class="hide-sm">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="tel:+13175550192" class="nav__cta">Call Us</a></li>
+    </ul>
+  </nav>
+
+  <!-- Precision stripe -->
+  <div class="stripe"></div>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero__content">
+      <p class="hero__label">Expert Auto Repair · Indianapolis, IN</p>
+      <h1 class="hero__title">Built on<br><span>Precision.</span><br>Driven by Trust.</h1>
+      <p class="hero__body">
+        From routine maintenance to complex diagnostics, Xtreme Precision delivers
+        dealership-quality repairs with the honesty and care of a local shop.
+      </p>
+      <div class="hero__actions">
+        <a href="services.html" class="btn btn--amber">View Our Services</a>
+        <a href="about.html" class="btn btn--outline">Our Story</a>
+      </div>
+    </div>
+    <div class="hero__visual" aria-hidden="true">
+      <!-- Decorative SVG gear / wrench graphic -->
+      <svg viewBox="0 0 320 320" fill="none" xmlns="http://www.w3.org/2000/svg" style="max-width:320px;opacity:.18;">
+        <circle cx="160" cy="160" r="140" stroke="#1D6FA4" stroke-width="2"/>
+        <circle cx="160" cy="160" r="100" stroke="#E8A020" stroke-width="1.5" stroke-dasharray="8 6"/>
+        <circle cx="160" cy="160" r="40" fill="#1D6FA4" opacity=".6"/>
+        <path d="M160 60 L170 100 L160 110 L150 100Z" fill="#E8A020"/>
+        <path d="M160 260 L170 220 L160 210 L150 220Z" fill="#E8A020"/>
+        <path d="M60 160 L100 170 L110 160 L100 150Z" fill="#E8A020"/>
+        <path d="M260 160 L220 170 L210 160 L220 150Z" fill="#E8A020"/>
+        <path d="M90 90 L118 120 L112 130 L100 122Z" fill="#1D6FA4"/>
+        <path d="M230 230 L202 200 L208 190 L220 198Z" fill="#1D6FA4"/>
+        <path d="M90 230 L118 200 L130 206 L122 218Z" fill="#1D6FA4"/>
+        <path d="M230 90 L202 120 L190 114 L198 102Z" fill="#1D6FA4"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- Stats bar -->
+  <div class="stats">
+    <div class="stat">
+      <div class="stat__num">15+</div>
+      <div class="stat__label">Years in Business</div>
+    </div>
+    <div class="stat">
+      <div class="stat__num">8,000+</div>
+      <div class="stat__label">Vehicles Serviced</div>
+    </div>
+    <div class="stat">
+      <div class="stat__num">ASE</div>
+      <div class="stat__label">Certified Technicians</div>
+    </div>
+    <div class="stat">
+      <div class="stat__num">100%</div>
+      <div class="stat__label">Satisfaction Guarantee</div>
+    </div>
+  </div>
+
+  <!-- Why Us -->
+  <section class="section">
+    <p class="section__label">Why Choose Us</p>
+    <h2 class="section__title">The Xtreme Precision Difference</h2>
+    <p class="section__body">We treat every vehicle like our own — with precision diagnostics, genuine parts, and straight talk about what your car actually needs.</p>
+    <div class="why-grid">
+      <div class="why-item">
+        <div class="why-item__icon">🔧</div>
+        <div>
+          <div class="why-item__title">ASE-Certified Techs</div>
+          <p class="why-item__body">Our technicians hold current ASE certifications and receive ongoing training for the latest vehicle systems.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-item__icon">🔍</div>
+        <div>
+          <div class="why-item__title">Accurate Diagnostics</div>
+          <p class="why-item__body">We use professional-grade scan tools to pinpoint issues fast — no guesswork, no unnecessary repairs.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-item__icon">📋</div>
+        <div>
+          <div class="why-item__title">Transparent Estimates</div>
+          <p class="why-item__body">You get a clear written estimate before we touch anything. No surprise charges, ever.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-item__icon">🛡️</div>
+        <div>
+          <div class="why-item__title">Warranty on Work</div>
+          <p class="why-item__body">All repairs come backed by our parts-and-labor warranty so you can drive away with confidence.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="stripe"></div>
+
+  <!-- Services Preview -->
+  <section class="section section--silver">
+    <p class="section__label">What We Do</p>
+    <h2 class="section__title">Our Core Services</h2>
+    <div class="card-grid card-grid--3 services-preview">
+      <div class="card">
+        <div class="card__icon">🛢️</div>
+        <div class="card__title">Oil & Fluid Service</div>
+        <p class="card__body">Full synthetic and conventional oil changes, coolant flushes, transmission fluid, and brake fluid service.</p>
+      </div>
+      <div class="card">
+        <div class="card__icon">🛑</div>
+        <div class="card__title">Brakes & Rotors</div>
+        <p class="card__body">Pad replacement, rotor resurfacing or replacement, caliper inspection — complete brake system care.</p>
+      </div>
+      <div class="card">
+        <div class="card__icon">⚡</div>
+        <div class="card__title">Engine Diagnostics</div>
+        <p class="card__body">Check-engine light, misfires, performance issues — we diagnose and explain every finding clearly.</p>
+      </div>
+    </div>
+    <div style="margin-top:2.5rem;">
+      <a href="services.html" class="btn btn--blue">See All Services →</a>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="section">
+    <p class="section__label">Customer Reviews</p>
+    <h2 class="section__title">What Our Customers Say</h2>
+    <div class="testimonial-grid">
+      <div class="testimonial">
+        <div class="testimonial__stars">★★★★★</div>
+        <p class="testimonial__text">"Brought my truck in for a mysterious noise. They found the issue in under an hour and had it fixed same day. Honest people, fair prices."</p>
+        <div class="testimonial__name">Marcus T. — Indianapolis</div>
+      </div>
+      <div class="testimonial">
+        <div class="testimonial__stars">★★★★★</div>
+        <p class="testimonial__text">"Finally a shop that explains what's wrong without talking down to you. Been coming here for three years and won't go anywhere else."</p>
+        <div class="testimonial__name">Diane R. — Carmel</div>
+      </div>
+      <div class="testimonial">
+        <div class="testimonial__stars">★★★★★</div>
+        <p class="testimonial__text">"The estimate matched the final bill exactly. That alone makes them stand out. Workmanship has always been excellent."</p>
+        <div class="testimonial__name">Kevin L. — Fishers</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Band -->
+  <div class="cta-band">
+    <h2 class="cta-band__title">Ready to Schedule Your Service?</h2>
+    <p class="cta-band__sub">Call us or stop by — we'll get you back on the road.</p>
+    <div class="cta-band__actions">
+      <a href="tel:+13175550192" class="btn btn--amber">📞 (317) 555-0192</a>
+      <a href="services.html" class="btn btn--outline">Browse Services</a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer__grid">
+      <div>
+        <div class="footer__brand-name">Xtreme Precision</div>
+        <div class="footer__brand-tag">Auto Repair</div>
+        <p class="footer__desc">Serving Indianapolis and surrounding communities with honest, expert auto repair since 2009. Your vehicle. Our precision.</p>
+      </div>
+      <div>
+        <div class="footer__col-title">Pages</div>
+        <ul class="footer__col">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="services.html">Services</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer__col-title">Contact</div>
+        <ul class="footer__col">
+          <li>📍 4821 Keystone Ave, Indianapolis, IN</li>
+          <li>📞 (317) 555-0192</li>
+          <li>✉️ info@xtremeprecision.com</li>
+          <li>Mon–Fri: 7:30 AM – 6:00 PM</li>
+          <li>Sat: 8:00 AM – 3:00 PM</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© 2025 Xtreme Precision Auto Repair. All rights reserved.</span>
+      <span>Indianapolis, IN</span>
+    </div>
+  </footer>
+
+</body>
+</html>
