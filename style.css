@@ -115,7 +115,7 @@ ul { list-style: none; }
 /* ── Precision stripe ── */
 .stripe {
   height: 5px;
-  background: linear-gradient(90deg, var(--navy) 0%, var(--blue) 40%, var(--amber) 100%);
+  background: linear-gradient(90deg, var(--navy) 0%, var(--blue) 40%, var(--red-bt) 100%);
   position: relative;
 }
 .stripe::after {
