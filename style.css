@@ -8,6 +8,8 @@
 :root {
   --navy:    #0D1B2A;
   --navy-mid:#142233;
+  --red-bt:  #F90F0F;
+  --red-dk:  #D00000;
   --white:   #FFFFFF;
   --silver:  #F2F4F7;
   --blue:    #1D6FA4;
@@ -74,7 +76,7 @@ ul { list-style: none; }
   font-weight: 600;
   font-size: .75rem;
   letter-spacing: .22em;
-  color: var(--amber);
+  color: var(--red-bt);
   text-transform: uppercase;
 }
 
@@ -96,19 +98,19 @@ ul { list-style: none; }
 .nav__links a:hover,
 .nav__links a.active { color: var(--white); }
 .nav__links a.active {
-  border-bottom: 2px solid var(--amber);
+  border-bottom: 2px solid var(--red-bt);
   padding-bottom: 2px;
 }
 
 .nav__cta {
-  background: var(--amber);
+  background: var(--red-bt);
   color: var(--navy) !important;
   font-weight: 700 !important;
   padding: .45rem 1.1rem;
   border-radius: var(--radius);
   transition: background .2s !important;
 }
-.nav__cta:hover { background: var(--amber-dk) !important; }
+.nav__cta:hover { background: var(--red-dk) !important; }
 
 /* ── Precision stripe ── */
 .stripe {
@@ -121,7 +123,7 @@ ul { list-style: none; }
   position: absolute;
   right: 0; top: 0;
   width: 60px; height: 5px;
-  background: var(--amber);
+  background: var(--red-bt);
   clip-path: polygon(8px 0%, 100% 0%, 92px 100%, 0% 100%);
 }
 
@@ -141,7 +143,7 @@ ul { list-style: none; }
   font-size: .8rem;
   letter-spacing: .25em;
   text-transform: uppercase;
-  color: var(--amber);
+  color: var(--red-bt);
   margin-bottom: .6rem;
 }
 .section__title {
@@ -176,8 +178,8 @@ ul { list-style: none; }
   border: none;
 }
 .btn:hover { transform: translateY(-1px); }
-.btn--amber { background: var(--amber); color: var(--navy); }
-.btn--amber:hover { background: var(--amber-dk); }
+.btn--amber { background: var(--red-bt); color: var(--navy); }
+.btn--amber:hover { background: var(--red-dk); }
 .btn--outline {
   background: transparent;
   border: 2px solid var(--white);
@@ -253,7 +255,7 @@ ul { list-style: none; }
   font-family: var(--font-head);
   font-size: .75rem;
   letter-spacing: .22em;
-  color: var(--amber);
+  color: var(--red-bt);
   text-transform: uppercase;
   margin-bottom: .9rem;
 }
@@ -268,7 +270,7 @@ ul { list-style: none; }
   margin-bottom: .9rem;
 }
 .footer__col li { margin-bottom: .5rem; font-size: .9rem; }
-.footer__col a:hover { color: var(--amber); }
+.footer__col a:hover { color: var(--red-bt); }
 .footer__bottom {
   border-top: 1px solid rgba(255,255,255,.1);
   padding-top: 1.5rem;
