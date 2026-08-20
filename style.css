@@ -178,8 +178,8 @@ ul { list-style: none; }
   border: none;
 }
 .btn:hover { transform: translateY(-1px); }
-.btn--amber { background: var(--red-bt); color: var(--navy); }
-.btn--amber:hover { background: var(--red-dk); }
+.btn--amber { background: var(--amber); color: var(--navy); }
+.btn--amber:hover { background: var(--amber); }
 .btn--outline {
   background: transparent;
   border: 2px solid var(--white);
