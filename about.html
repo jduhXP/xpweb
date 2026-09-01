@@ -168,6 +168,17 @@
       .story { grid-template-columns: 1fr; gap: 2rem; }
       .story__img-wrap { display: none; }
     }
+    @media (max-width: 540px) {
+    .page-hero {
+      padding: 40px 6% 36px; }
+    }
+    .cert-bar {
+      gap: 1rem;
+      padding: 24px 5%;
+    }
+    .cert-item {
+    font-size: .8rem;
+    }
   </style>
 </head>
 <body>
@@ -184,6 +195,9 @@
       <li><a href="services.html">Services</a></li>
       <li><a href="tel:+13175550192" class="nav__cta">Call Us</a></li>
     </ul>
+    <button class="nav__toggle" onclick="this.closest('nav').querySelector('.nav__links').classList.toggle('open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
   <div class="stripe"></div>
 
@@ -236,7 +250,7 @@
       <div class="value-card">
         <div class="value-card__icon">🌱</div>
         <div class="value-card__title">Continued Service</div>
-        <p class="value-card__body">We strive to have regualr and continued customers through excellent service. Many people choose Xtreme Precision first because of the excellent service they have received.</p>
+        <p class="value-card__body">We strive to have regular and continued customers through excellent service. Many people choose Xtreme Precision first because of the excellent service they have received.</p>
       </div>
     </div>
   </section>
@@ -282,7 +296,7 @@
           <li>📞 (317) 831-4800</li>
           <li>✉️ contact@xtreme-precision.com</li>
           <li>Mon–Fri: 8:00 AM – 5:00 PM</li>
-          <li>Sat: 12:00 AM – 3:00 PM</li>
+          <li>Sat: 12:00 PM – 3:00 PM</li>
         </ul>
       </div>
     </div>
