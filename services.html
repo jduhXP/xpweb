@@ -169,6 +169,23 @@
       }
       .service-card__price { grid-column: 2; }
     }
+    @media (max-width: 540px) {
+      .page-hero {
+        padding: 40px 6% 36px;
+    }
+      .service-card {
+        grid-template-columns: auto 1fr;
+        grid-template-rows: auto auto;
+      }
+      .service-card__icon { grid-row: 1; }
+      .service-card__price {
+        grid-column: 1 / -1;  /* full width */
+        text-align: left;
+        border-top: 1px solid var(--border);
+        padding-top: .75rem;
+        margin-top: .25rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -185,6 +202,9 @@
       <li><a href="services.html" class="active">Services</a></li>
       <li><a href="tel:+13175550192" class="nav__cta">Call Us</a></li>
     </ul>
+    <button class="nav__toggle" onclick="this.closest('nav').querySelector('.nav__links').classList.toggle('open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
   <div class="stripe"></div>
 
@@ -457,7 +477,7 @@
     </div>
     <div class="footer__bottom">
       <span>© 2026 Xtreme Precision Collision & Mechanical. All rights reserved.</span>
-      <span>Moooresville, IN</span>
+      <span>Mooresville, IN</span>
     </div>
   </footer>
 
